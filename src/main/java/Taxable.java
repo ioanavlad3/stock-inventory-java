@@ -1,3 +1,5 @@
+package src.main.java;
+
 public interface Taxable {
     double TVA_PERISHABLE = 0.09;
     double TVA_STANDARD = 0.19;

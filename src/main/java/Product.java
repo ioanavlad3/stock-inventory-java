@@ -1,3 +1,5 @@
+package src.main.java;
+
 import java.util.Objects;
 import java.util.Random;
 
@@ -59,5 +61,9 @@ public abstract class Product {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

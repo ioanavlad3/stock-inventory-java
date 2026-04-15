@@ -1,3 +1,5 @@
+package src.main.java;
+
 public class ElectronicProduct extends Product implements Taxable{
     private int monthsWarranty;
     private char energeticClass;
