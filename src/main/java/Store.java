@@ -3,8 +3,8 @@ package src.main.java;
 public class Store extends StorageSpace {
     private String storeName;
 
-    public Store(int capacityVolume, int capacityWeight, String storeName) {
-        super(capacityVolume, capacityWeight);
+    public Store(int capacityVolume, int capacityWeight, int temperature, String storeName) {
+        super(capacityVolume, capacityWeight, temperature);
         this.storeName = storeName;
     }
 

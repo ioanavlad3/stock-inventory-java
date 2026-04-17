@@ -1,22 +1,25 @@
 package src.main.java;
 
+import java.util.List;
+
 public class OutTransaction extends Transaction{
-    private Store store;
-    private Product product;
-    private int amount;
+    private final Store store;
     
-    public OutTransaction(Employee e, Depozit d, Store s, Product p, int amount) {
-        super(e, d);
-        this.store = s;
-        this.product = p;
-        this.amount = amount;
+    public OutTransaction(Employee e, Deposit d, Product p, int amount, int placement,
+                          Store store) {
+        super(e, d, p, amount, placement);
+        this.store = store;
+    }
+
+
+    @Override
+    protected List<Employee.Role> getAllowedRoles() {
+        return List.of(Employee.Role.MANAGER, Employee.Role.ADMINISTRATOR);
     }
 
     @Override
     public void execute() {
-        if(this.employee.getRole() != Employee.Role.CASHIER){
-            throw new SecurityException("Only the cashier is allowed to perform sales transactions");
-        }
+        checkPermission();
         store.removeProduct(product, amount);
         logOperation(" sold " + amount + " of " + product.getName());
     }

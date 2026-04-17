@@ -4,8 +4,9 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class PerishableProduct extends Product implements Taxable{
-    private LocalDate expirationDate;
-    private int storageTemperature;
+    private final LocalDate expirationDate;
+    // the temperature that the product must be stored at
+    private final int storageTemperature;
 
     protected PerishableProduct(String name, String description, double purchasePrice,
                                 double salePrice, LocalDate expirationDate, int storageTemperature) {
@@ -30,6 +31,10 @@ public class PerishableProduct extends Product implements Taxable{
             // reduced by 30%
             this.salePrice *= 0.7;
         }
+    }
+
+    public int getStorageTemperature(){
+        return this.storageTemperature;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package src.main.java;
 
-public class ElectronicProduct extends Product implements Taxable{
+import java.util.Comparator;
+
+public class ElectronicProduct extends Product implements Taxable  {
     private int monthsWarranty;
     private char energeticClass;
     private int power;
@@ -13,6 +15,26 @@ public class ElectronicProduct extends Product implements Taxable{
         this.power = power;
     }
 
+    public static Comparator<ElectronicProduct> compareByPower = new Comparator<ElectronicProduct>() {
+        @Override
+        public int compare(ElectronicProduct o1, ElectronicProduct o2) {
+            return o1.power - o2.power;
+        }
+    };
+    // desc by Energetic class : A, B , C ...
+    public static Comparator<ElectronicProduct> compareByEnergeticClass = new Comparator<ElectronicProduct>() {
+        @Override
+        public int compare(ElectronicProduct o1, ElectronicProduct o2) {
+            return Character.compare(o2.energeticClass, o1.energeticClass);
+        }
+    };
+    // Desc by warranty
+    public static Comparator<ElectronicProduct> compareByWarranty = new Comparator<ElectronicProduct>() {
+        @Override
+        public int compare(ElectronicProduct o1, ElectronicProduct o2) {
+            return o2.monthsWarranty - o1.monthsWarranty;
+        }
+    };
 
     @Override
     public double getTaxesValue() {
@@ -23,4 +45,5 @@ public class ElectronicProduct extends Product implements Taxable{
     public double getFinalPrice() {
         return this.salePrice + getTaxesValue();
     }
+
 }

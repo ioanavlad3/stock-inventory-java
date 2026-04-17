@@ -11,7 +11,7 @@ public abstract class Product {
     protected String description;
     protected double purchasePrice;
     protected double salePrice;
-    protected int minimumStock;
+    //protected int minimumStock;
     protected double volume;
     protected double weight;
 

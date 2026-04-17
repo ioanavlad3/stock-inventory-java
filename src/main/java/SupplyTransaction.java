@@ -1,25 +1,27 @@
 package src.main.java;
-// class for the elements that came in Depozit
+
+import java.util.List;
+
+// class for the elements that came in Deposit
 public class SupplyTransaction extends Transaction{
 
-    private int district;
-    private int amount;
-    private Product product;
+    public SupplyTransaction(Employee e, Deposit d, int district, int amount,
+                             Product p, int placement) {
+        super(e, d, p, amount, placement);
+    }
 
-    public SupplyTransaction(Employee e, Depozit d, int district, int amount, Product p) {
-        super(e, d);
-        this.district = district;
-        this.amount = amount;
-        this.product = p;
+
+    @Override
+    protected List<Employee.Role> getAllowedRoles() {
+        return List.of(Employee.Role.MANAGER, Employee.Role.ADMINISTRATOR);
     }
 
     @Override
     public void execute() {
-        if (this.employee.getRole() == Employee.Role.CASHIER){
-            throw new SecurityException("Cashier is not allowed to do this transaction");
-        }
-        depozit.addProduct(product, district, amount);
+        checkPermission();
+        storage.addProduct(product, placement, amount);
         this.employee.addBonus(1);
-        logOperation(" received supply: " + amount + " of " + product.getName() + " in district " + district);
+        logOperation(" received supply: " + amount + " of " + product.getName() +
+                " in district " + placement);
     }
 }

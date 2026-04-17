@@ -7,6 +7,7 @@ public class Distributor {
     private final String codeUnique;
     private float rating;
     private int paymentTerm;
+    // name - price
     private HashMap<String, Float> catalog = new HashMap<>();
 
     public Distributor(float rating, int pT, HashMap<String, Float> c) {
@@ -41,5 +42,17 @@ public class Distributor {
     @Override
     public int hashCode(){
         return Objects.hashCode(codeUnique);
+    }
+
+    public Float getPrice(String productName) {
+        return catalog.get(productName);
+    }
+
+     public float getRating() {
+        return rating;
+    }
+
+    public String getCodeUnique() {
+        return codeUnique;
     }
 }
