@@ -48,7 +48,7 @@ public class Distributor {
         return catalog.get(productName);
     }
 
-     public float getRating() {
+    public float getRating() {
         return rating;
     }
 

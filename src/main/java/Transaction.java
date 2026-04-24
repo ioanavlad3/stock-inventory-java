@@ -2,6 +2,7 @@ package src.main.java;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 public abstract class Transaction {
@@ -35,6 +36,19 @@ public abstract class Transaction {
     protected void logOperation(String details){
         System.out.println("[" + timestamp + "] Employee: " + employee.getName() +
                 " | " + details);
+    }
+
+    public Product getProduct(){
+        return this.product;
+    }
+
+    public int getAmount(){
+        return this.amount;
+    }
+
+
+    public LocalDateTime getDateTime(){
+        return this.timestamp;
     }
 
 

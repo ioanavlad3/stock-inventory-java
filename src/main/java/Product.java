@@ -50,6 +50,12 @@ public abstract class Product {
         return this.weight;
     }
 
+    public double getPurchasePrice(){
+        return this.purchasePrice;
+    }
+
+    public abstract double getFinalPrice();
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

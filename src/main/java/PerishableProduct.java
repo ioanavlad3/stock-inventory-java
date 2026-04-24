@@ -31,6 +31,7 @@ public class PerishableProduct extends Product implements Taxable{
             // reduced by 30%
             this.salePrice *= 0.7;
         }
+        System.out.println(this.toString());
     }
 
     public int getStorageTemperature(){
@@ -46,4 +47,11 @@ public class PerishableProduct extends Product implements Taxable{
     public double getFinalPrice() {
         return this.salePrice + getTaxesValue();
     }
+
+    @Override
+    public String toString(){
+        return "{name=" + this.name + ", description=" + this.description +
+                ", expiration date=" + this.expirationDate + "}";
+    }
+
 }

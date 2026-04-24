@@ -1,6 +1,7 @@
 package src.main.java;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
 
@@ -140,6 +141,14 @@ public abstract class StorageSpace {
         }
     }
 
+    public void displayAllProducts(){
+        Map<Integer, Integer> locations = (Map<Integer, Integer>) inventory.values();
+
+        for(Integer l : locations.keySet()){
+            displayProductsAtLocation(l);
+        }
+    }
+
     // Find the location with the least amount of total quantity (best for distributing stock)
     public int findLeastOccupiedLocation() {
         int leastOccupiedLocation = 0;
@@ -169,5 +178,18 @@ public abstract class StorageSpace {
         int optimalLocation = findLeastOccupiedLocation();
         addProduct(p, optimalLocation, amount);
         System.out.println("Product " + p.getName() + " added to location " + optimalLocation);
+    }
+
+    public int getTotalProductStock(Product p){
+        Map<Integer, Integer> locations = inventory.get(p);
+        int total = 0;
+        for(Integer location : locations.keySet()){
+            total += locations.get(location);
+        }
+        return total;
+    }
+
+    public List<Product> getProducts() {
+        return new ArrayList<>(inventory.keySet());
     }
 }
