@@ -8,8 +8,9 @@ public class ElectronicProduct extends Product implements Taxable  {
     private int power;
 
     protected ElectronicProduct(String name, String description, double purchasePrice,
-                                double salePrice, int monthsWarranty, char energeticClass, int power) {
-        super(name, description, purchasePrice, salePrice);
+                                double salePrice, int monthsWarranty, char energeticClass, int power,
+                                Category.Type cat) {
+        super(name, description, purchasePrice, salePrice, cat);
         this.monthsWarranty = monthsWarranty;
         this.energeticClass = energeticClass;
         this.power = power;
@@ -44,6 +45,13 @@ public class ElectronicProduct extends Product implements Taxable  {
     @Override
     public double getFinalPrice() {
         return this.salePrice + getTaxesValue();
+    }
+
+    @Override
+    public String toString(){
+        return "Electronic{name=" + this.name + ", description=" + this.description +
+                ", warranty months=" + this.monthsWarranty + ", energetic class = " + this.energeticClass +
+                ", power = " + this.power + "W}";
     }
 
 }

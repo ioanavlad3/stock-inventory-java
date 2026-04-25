@@ -9,8 +9,9 @@ public class PerishableProduct extends Product implements Taxable{
     private final int storageTemperature;
 
     protected PerishableProduct(String name, String description, double purchasePrice,
-                                double salePrice, LocalDate expirationDate, int storageTemperature) {
-        super(name, description, purchasePrice, salePrice);
+                                double salePrice, LocalDate expirationDate, int storageTemperature,
+                                Category.Type cat) {
+        super(name, description, purchasePrice, salePrice, cat);
         this.expirationDate = expirationDate;
         this.storageTemperature = storageTemperature;
     }
@@ -50,7 +51,7 @@ public class PerishableProduct extends Product implements Taxable{
 
     @Override
     public String toString(){
-        return "{name=" + this.name + ", description=" + this.description +
+        return "Perishable{name=" + this.name + ", description=" + this.description +
                 ", expiration date=" + this.expirationDate + "}";
     }
 

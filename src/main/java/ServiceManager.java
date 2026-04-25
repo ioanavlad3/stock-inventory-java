@@ -134,10 +134,10 @@ public class ServiceManager {
     }
 
     public void printAllCategories() {
-        Map<Category, List<Product>> prodByCat = new HashMap<>();
+        Map<Category.Type, List<Product>> prodByCat = new HashMap<>();
 
         for (Product p : ss.getProducts()) {
-            Category cat = p.getCategory();
+            Category.Type cat = p.getCategory();
 
             prodByCat.putIfAbsent(cat, new ArrayList<>());
 
@@ -145,7 +145,7 @@ public class ServiceManager {
         }
 
         int i = 1;
-        for (Map.Entry<Category, List<Product>> entry : prodByCat.entrySet()) {
+        for (Map.Entry<Category.Type, List<Product>> entry : prodByCat.entrySet()) {
             System.out.println(i + ": " + entry.getKey().getName());
             i++;
             for (Product p : entry.getValue()) {

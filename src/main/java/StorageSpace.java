@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
 
-public abstract class StorageSpace {
+public class StorageSpace {
     protected final int maxVolume;
     protected final int maxWeight;
     protected double capacityWeightRemain;

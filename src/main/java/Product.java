@@ -14,10 +14,10 @@ public abstract class Product {
     //protected int minimumStock;
     protected double volume;
     protected double weight;
-    protected Category category;
+    protected Category.Type category;
 
     protected Product(String name, String description, double purchasePrice, double salePrice,
-                      Category category) {
+                      Category.Type category) {
         this.id = generateUniqueId();
         this.name = name;
         this.description = description;
@@ -76,7 +76,7 @@ public abstract class Product {
         return this.name;
     }
 
-    public Category getCategory() {
+    public Category.Type getCategory() {
         return category;
     }
 

@@ -4,44 +4,39 @@ package src.main.java;
 import java.util.ArrayList;
 
 public class Category {
+
+    public enum Type {
+        DAIRY("Dairy Products"),
+        BAKERY("Bakery Items"),
+        FRUITS("Fresh Fruits"),
+        VEGETABLES("Fresh Vegetables"),
+        ELECTRONICS("Electronics");
+
+        private final String displayName;
+
+        Type(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getName() {
+            return displayName;
+        }
+    }
+
     private String name;
     private String description;
-   // private ArrayList<Product> products = new ArrayList<>();
+
 
     public Category(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-//   public void addProduct(Product p) {
-//        this.products.add(p);
-//    }
-
-//    public void addProductList(ArrayList<Product> ps) {
-//        this.products.addAll(ps);
-//    }
-
-    public String getName(){
-        return this.name;
-    }
 
     @Override
     public String toString(){
         return "Category{name='" + name + "', description='" + description + "'}";
     }
 
-//    @Override
-//    public String toString(){
-//        StringBuilder sb = new StringBuilder("{name=" + this.name + ", description=" +
-//                this.description);
-//        if(!this.products.isEmpty()) {
-//            sb.append(", products:");
-//            for (Product p : products){
-//                sb.append(p.toString());
-//            }
-//        }
-//        sb.append("}");
-//        return sb.toString();
-//    }
 
 }

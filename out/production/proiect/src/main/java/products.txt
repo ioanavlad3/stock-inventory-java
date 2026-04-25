@@ -1,0 +1,15 @@
+PERISHABLE,Whole Milk,Fresh organic milk 1L,0.80,1.50,DAIRY,2026-05-10,4
+PERISHABLE,Cheddar Cheese,Aged sharp cheddar 200g,2.10,4.50,DAIRY,2026-06-15,6
+PERISHABLE,Greek Yogurt,Creamy natural yogurt 500g,1.20,2.80,DAIRY,2026-05-05,4
+PERISHABLE,Sourdough Bread,Handmade artisanal bread,1.10,3.50,BAKERY,2026-04-28,20
+PERISHABLE,Apple Tart,Sweet tart with cinnamon apples,2.50,5.50,BAKERY,2026-04-27,18
+PERISHABLE,Red Apples,Sweet Gala apples (1kg),1.00,2.20,FRUITS,2026-05-20,15
+PERISHABLE,Bananas,Tropical yellow bananas (1kg),0.80,1.90,FRUITS,2026-05-01,18
+PERISHABLE,Fresh Spinach,Baby spinach leaves 200g,0.90,2.10,VEGETABLES,2026-04-30,3
+PERISHABLE,Cherry Tomatoes,Sweet red tomatoes 500g,1.10,2.50,VEGETABLES,2026-05-05,10
+PERISHABLE,Broccoli,Fresh green broccoli head,0.70,1.80,VEGETABLES,2026-05-02,4
+ELECTRONIC,Wireless Mouse,Ergonomic optical mouse,5.00,15.00,ELECTRONICS,24,A,5
+ELECTRONIC,Bluetooth Headset,Noise cancelling phones,25.00,55.00,ELECTRONICS,12,B,10
+ELECTRONIC,USB-C Hub,Multi-port adapter,12.00,28.00,ELECTRONICS,24,A,15
+ELECTRONIC,Gaming Keyboard,Mechanical RGB keyboard,30.00,75.00,ELECTRONICS,36,A,20
+ELECTRONIC,Smart LED Bulb,WiFi controlled light,4.00,12.00,ELECTRONICS,24,A,9

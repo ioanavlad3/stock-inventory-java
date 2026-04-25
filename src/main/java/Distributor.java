@@ -55,4 +55,10 @@ public class Distributor {
     public String getCodeUnique() {
         return codeUnique;
     }
+
+    @Override
+    public String toString(){
+        return "Distributor{code=" + this.codeUnique + ", rating=" + this.rating
+                + ", payment term=" + this.paymentTerm + "}";
+    }
 }

@@ -1,0 +1,5 @@
+Dairy,A premium selection of fresh milk, artisanal cheeses, creamy yogurts, and butter.
+Bakery,A delightful assortment of freshly baked bread, pastries, cakes, and cookies.
+Fruits,Nature’s finest treats, picked at the peak of ripeness.
+Vegetables,A vibrant collection of crisp greens, colorful peppers, and nutrient-rich root vegetables.
+Electronics, Cutting-edge gadgets, innovative devices, and the latest in technology.
