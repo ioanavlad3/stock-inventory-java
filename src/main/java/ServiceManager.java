@@ -10,6 +10,7 @@ public class ServiceManager {
     private List<Distributor> distributorList = new ArrayList<>();
     private StorageSpace ss;
     private List<Transaction> transactionHistory = new ArrayList<>();
+    private List<Category> categoryList = new ArrayList<>();
 
     private ServiceManager() {}
 
@@ -40,6 +41,10 @@ public class ServiceManager {
 
     public void setStorageSpace(StorageSpace storageSpace) {
         this.ss = storageSpace;
+    }
+
+    public void setCategoryList(List<Category> categories){
+        this.categoryList = categories;
     }
 
     public Distributor getCheapestDistributor(String product){
@@ -118,9 +123,36 @@ public class ServiceManager {
                 int amount = t.getAmount();
                 totalProfit += p.calculateProfit() * amount;
             }
-            
+
         }
         return totalProfit;
+    }
+
+    public void getProductsByCategory(Category category){
+        ss.getProducts().stream().filter(p -> p.getCategory().equals(category))
+                .forEach(p -> System.out.println(p.toString()));
+    }
+
+    public void printAllCategories() {
+        Map<Category, List<Product>> prodByCat = new HashMap<>();
+
+        for (Product p : ss.getProducts()) {
+            Category cat = p.getCategory();
+
+            prodByCat.putIfAbsent(cat, new ArrayList<>());
+
+            prodByCat.get(cat).add(p);
+        }
+
+        int i = 1;
+        for (Map.Entry<Category, List<Product>> entry : prodByCat.entrySet()) {
+            System.out.println(i + ": " + entry.getKey().getName());
+            i++;
+            for (Product p : entry.getValue()) {
+                System.out.println("   - " + p.getName());
+            }
+            System.out.println();
+        }
     }
 
 }

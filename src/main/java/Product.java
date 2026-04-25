@@ -14,13 +14,16 @@ public abstract class Product {
     //protected int minimumStock;
     protected double volume;
     protected double weight;
+    protected Category category;
 
-    protected Product(String name, String description, double purchasePrice, double salePrice) {
+    protected Product(String name, String description, double purchasePrice, double salePrice,
+                      Category category) {
         this.id = generateUniqueId();
         this.name = name;
         this.description = description;
         this.purchasePrice = purchasePrice;
         this.salePrice = salePrice;
+        this.category = category;
     }
 
     private String generateUniqueId() {
@@ -71,5 +74,14 @@ public abstract class Product {
 
     public String getName() {
         return this.name;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    @Override
+    public String toString(){
+        return "Product{name='" + name + "', description='" + description + "'}";
     }
 }
