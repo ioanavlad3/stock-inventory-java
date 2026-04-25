@@ -14,7 +14,7 @@ public class OutTransaction extends Transaction{
 
     @Override
     protected List<Employee.Role> getAllowedRoles() {
-        return List.of(Employee.Role.MANAGER, Employee.Role.ADMINISTRATOR);
+        return List.of(Employee.Role.CASHIER);
     }
 
     @Override

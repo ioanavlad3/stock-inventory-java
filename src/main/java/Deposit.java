@@ -3,7 +3,7 @@ package src.main.java;
 public class Deposit extends StorageSpace {
     // int operationCost;
 
-    public Deposit(int capacityVolume, int capacityWeight, int temperature, int cost) {
+    public Deposit(int capacityVolume, int capacityWeight, int temperature) {
         super(capacityVolume, capacityWeight, temperature);
        // this.operationCost = cost;
     }

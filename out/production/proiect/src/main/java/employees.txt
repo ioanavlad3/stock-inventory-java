@@ -1,0 +1,5 @@
+John Doe,ADMINISTRATOR,5500.0
+Alice Smith,MANAGER,4200.0
+Bob Johnson,CASHIER,2800.0
+Elena Popescu,CASHIER,2900.0
+Mark Wilson,MANAGER,4100.0

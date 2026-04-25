@@ -1,9 +1,6 @@
 package src.main.java;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
+import java.util.*;
 
 public class StorageSpace {
     protected final int maxVolume;
@@ -51,11 +48,32 @@ public class StorageSpace {
         // Add or update the quantity at this location
         //locations.put(location, locations.getOrDefault(location, 0) + amount);
         if (location == 0) {
-            addProductToOptimalLocation(p, amount);
+            location = findLocationForProduct(p);
         }
 
+        inventory.putIfAbsent(p, new HashMap<>());
+        Map<Integer, Integer> loc = inventory.get(p);
+        locations.put(location, loc.getOrDefault(location, 0) + amount);
         capacityWeightRemain -= totalWeight;
         capacityVolumeRemain -= totalVolume;
+    }
+
+    // Find an empty location, or a location that doesn't have this product
+    public int findLocationForProduct(Product p) {
+        for (int i = 1; i <= 100; i++) {
+            if (isLocationEmpty(i)) {
+                return i;
+            }
+        }
+        // If no empty location, find one that doesn't have this product
+        for (int i = 1; i <= 100; i++) {
+            if (!inventory.containsKey(p) || !inventory.get(p).containsKey(i)) {
+                return i;
+            }
+        }
+
+        // If all locations are occupied with this product, use the least occupied one
+        return findLeastOccupiedLocation();
     }
 
     public void removeProduct(Product p, int amount) {
@@ -141,11 +159,15 @@ public class StorageSpace {
         }
     }
 
-    public void displayAllProducts(){
-        Map<Integer, Integer> locations = (Map<Integer, Integer>) inventory.values();
+    public void displayAllProducts() {
+        Set<Integer> uniqueLocations = new HashSet<>();
 
-        for(Integer l : locations.keySet()){
-            displayProductsAtLocation(l);
+        for (Map<Integer, Integer> locationMap : inventory.values()) {
+            uniqueLocations.addAll(locationMap.keySet());
+        }
+
+        for (Integer location : uniqueLocations) {
+            displayProductsAtLocation(location);
         }
     }
 
@@ -181,6 +203,11 @@ public class StorageSpace {
     }
 
     public int getTotalProductStock(Product p){
+        // if the product doesn't exist
+        if (!inventory.containsKey(p)) {
+            return 0;
+        }
+
         Map<Integer, Integer> locations = inventory.get(p);
         int total = 0;
         for(Integer location : locations.keySet()){

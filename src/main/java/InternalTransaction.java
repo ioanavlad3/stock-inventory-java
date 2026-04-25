@@ -13,7 +13,7 @@ public class InternalTransaction extends Transaction{
 
     @Override
     protected List<Employee.Role> getAllowedRoles() {
-        return List.of(Employee.Role.CASHIER);
+        return List.of(Employee.Role.MANAGER, Employee.Role.ADMINISTRATOR);
     }
 
     @Override
