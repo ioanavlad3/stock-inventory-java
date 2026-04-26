@@ -26,10 +26,12 @@ public class ServiceManager {
         float bestScore = 0;
         Distributor bestDistributor = null;
         for (Distributor d : distributorList) {
-            float score = d.getRating() / d.getPrice(product);
-            if (score > bestScore) {
-                bestScore = score;
-                bestDistributor = d;
+            if (d.getPrice(product) != null){
+                float score = d.getRating() / d.getPrice(product);
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestDistributor = d;
+                }
             }
         }
         return bestDistributor;
@@ -95,12 +97,14 @@ public class ServiceManager {
     public double getTotalPriceDay(LocalDate date) {
         double sum = 0;
         for (Transaction t : transactionHistory){
-            LocalDateTime t_date = t.getDateTime();
-            if (t_date.getYear() == date.getYear()
-                    && t_date.getMonth() == date.getMonth()
-                    && t_date.getDayOfMonth() == date.getDayOfMonth()
-                ){
-                sum +=  (t.getAmount() * t.getProduct().getFinalPrice());
+            if (t instanceof OutTransaction) {
+                LocalDateTime t_date = t.getDateTime();
+                if (t_date.getYear() == date.getYear()
+                        && t_date.getMonth() == date.getMonth()
+                        && t_date.getDayOfMonth() == date.getDayOfMonth()
+                ) {
+                    sum += (t.getAmount() * t.getProduct().getFinalPrice());
+                }
             }
         }
         return sum;

@@ -31,8 +31,10 @@ public class PerishableProduct extends Product implements Taxable{
         if (daysLeft > 0 && daysLeft <= 3) {
             // reduced by 30%
             this.salePrice *= 0.7;
+            System.out.print("Reduced by 30%: ");
+            System.out.println(this.toString());
         }
-        System.out.println(this.toString());
+
     }
 
     public int getStorageTemperature(){
