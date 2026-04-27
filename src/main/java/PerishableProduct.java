@@ -34,7 +34,6 @@ public class PerishableProduct extends Product implements Taxable{
             System.out.print("Reduced by 30%: ");
             System.out.println(this.toString());
         }
-
     }
 
     public int getStorageTemperature(){

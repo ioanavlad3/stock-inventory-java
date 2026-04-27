@@ -57,6 +57,7 @@ public class Main {
             System.out.println("10. Find best/cheapest distributor for a product");
             System.out.println("11. Check global stock for a product");
             System.out.println("12. Filter products by category");
+            System.out.println("13. Sort electronic products by: ");
             System.out.println("0. Exit");
             System.out.print("Select an option: ");
 
@@ -96,6 +97,7 @@ public class Main {
                 case 10 -> handleDistributorCheck(manager, scanner);
                 case 11 -> handleGlobalStockCheck(manager, products, scanner);
                 case 12 -> handleCategoryFilter(manager, scanner);
+                case 13 -> handleSortElectronicProducts(manager, scanner);
                 case 0 -> {
                     System.out.println("Exiting application. Goodbye!");
                     running = false;
@@ -104,6 +106,25 @@ public class Main {
             }
         }
         scanner.close();
+    }
+
+    private static void handleSortElectronicProducts(ServiceManager manager, Scanner scanner) {
+        System.out.println("Sort by: 1. Power Consumption 2. Warranty Period 3. Energy Efficiency");
+        System.out.print("Select sorting criteria: ");
+        int sortChoice = -1;
+        try {
+            sortChoice = Integer.parseInt(scanner.nextLine());
+            switch (sortChoice) {
+                case 1 -> manager.sortElectronicProducts(ElectronicProduct.compareByPower);
+                case 2 -> manager.sortElectronicProducts(ElectronicProduct.compareByWarranty);
+                case 3 -> manager.sortElectronicProducts(ElectronicProduct.compareByEnergeticClass);
+                default -> System.out.println("Invalid sorting option.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            return;
+        }
+
     }
 
     private static void handleRestock(ServiceManager manager, List<Product> products, List<Employee> employees, Scanner scanner) {

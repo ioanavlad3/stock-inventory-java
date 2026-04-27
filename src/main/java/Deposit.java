@@ -8,7 +8,5 @@ public class Deposit extends StorageSpace {
        // this.operationCost = cost;
     }
 
-    //public int getOperationCost() {
-//        return operationCost;
-//    }
+
 }

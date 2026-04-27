@@ -118,7 +118,7 @@ public class ServiceManager {
         }
     }
 
-    // total profit = sell price - tva - buy price
+    // total profit = sell price - buy price
     public double getTotalProfit(){
         double totalProfit = 0;
         for(Transaction t : transactionHistory){
@@ -240,6 +240,14 @@ public class ServiceManager {
         } catch (Exception e) {
             System.out.println("Transaction failed: " + e.getMessage());
         }
+    }
+
+    public void sortElectronicProducts(Comparator<ElectronicProduct> comparator) {
+        ss.getProducts().stream()
+            .filter(p -> p instanceof ElectronicProduct)
+            .map(p -> (ElectronicProduct) p)
+            .sorted(comparator)
+            .forEach(p -> System.out.println(p.toString()));
     }
 
 }

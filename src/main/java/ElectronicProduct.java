@@ -22,11 +22,11 @@ public class ElectronicProduct extends Product implements Taxable  {
             return o1.power - o2.power;
         }
     };
-    // desc by Energetic class : A, B , C ...
+
     public static Comparator<ElectronicProduct> compareByEnergeticClass = new Comparator<ElectronicProduct>() {
         @Override
         public int compare(ElectronicProduct o1, ElectronicProduct o2) {
-            return Character.compare(o2.energeticClass, o1.energeticClass);
+            return Character.compare(o1.energeticClass, o2.energeticClass);
         }
     };
     // Desc by warranty
